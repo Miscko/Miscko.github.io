@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замовлення їжі</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="#menu" onclick="showSection('menu')">Меню</a>
+        <a href="#cart" onclick="showSection('cart')">Кошик</a>
+        <a href="#orders" onclick="showSection('orders')">Мої замовлення</a>
+    </nav>
+    
+    <div class="container">
+        <section id="menu" class="grid">
+            <div class="item">
+                <img src="Страва 1.png" alt="Страва 1">
+                <h3>Страва 1</h3>
+                <p>Опис страви</p>
+                <p>Ціна: 150 грн</p>
+                <button onclick="addToCart('Страва 1', 150)">Додати в кошик</button>
+            </div>
+            <div class="item">
+                <img src="Страва 2.png" alt="Страва 2">
+                <h3>Страва 2</h3>
+                <p>Опис страви</p>
+                <p>Ціна: 120 грн</p>
+                <button onclick="addToCart('Страва 2', 120)">Додати в кошик</button>
+            </div>
+        </section>
+        
+        <section id="cart" class="cart">
+            <h2>Кошик</h2>
+            <div class="grid" id="cart-items">
+                <p>Кошик порожній</p>
+            </div>
+            <button onclick="placeOrder()">Замовити</button>
+        </section>
+        
+        <section id="orders" class="orders">
+            <h2>Мої замовлення</h2>
+            <div id="order-items">
+                <p>Немає історії замовлень</p>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        let orderCount = 0;
+        
+        function showSection(section) {
+            document.getElementById('menu').style.display = section === 'menu' ? 'grid' : 'none';
+            document.getElementById('cart').style.display = section === 'cart' ? 'block' : 'none';
+            document.getElementById('orders').style.display = section === 'orders' ? 'block' : 'none';
+        }
+
+        function addToCart(name, price) {
+            const cart = document.getElementById('cart-items');
+            if (cart.innerHTML.includes('Кошик порожній')) {
+                cart.innerHTML = '';
+            }
+            const item = document.createElement('div');
+            item.classList.add('item');
+            item.innerHTML = `<h3>${name}</h3><p>Ціна: ${price} грн</p>`;
+            cart.appendChild(item);
+        }
+
+        function placeOrder() {
+            const cart = document.getElementById('cart-items');
+            const orders = document.getElementById('order-items');
+            if (cart.innerHTML.trim() !== '' && !cart.innerHTML.includes('Кошик порожній')) {
+                if (orders.innerHTML.includes('Немає історії замовлень')) {
+                    orders.innerHTML = '';
+                }
+                orderCount++;
+                const orderWrapper = document.createElement('div');
+                orderWrapper.classList.add('order-item');
+                orderWrapper.innerHTML = `<h3>Замовлення №${orderCount}</h3>` + cart.innerHTML;
+                orders.appendChild(orderWrapper);
+                cart.innerHTML = '<p>Кошик порожній</p>';
+            }
+        }
+    </script>
+</body>
+</html>
