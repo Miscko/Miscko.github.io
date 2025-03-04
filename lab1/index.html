@@ -36,6 +36,7 @@
             <div class="grid" id="cart-items">
                 <p>Кошик порожній</p>
             </div>
+            <p id="cart-total">Загальна сума: 0 грн</p>
             <button onclick="placeOrder()">Замовити</button>
         </section>
         
@@ -47,41 +48,6 @@
         </section>
     </div>
     
-    <script>
-        let orderCount = 0;
-        
-        function showSection(section) {
-            document.getElementById('menu').style.display = section === 'menu' ? 'grid' : 'none';
-            document.getElementById('cart').style.display = section === 'cart' ? 'block' : 'none';
-            document.getElementById('orders').style.display = section === 'orders' ? 'block' : 'none';
-        }
-
-        function addToCart(name, price) {
-            const cart = document.getElementById('cart-items');
-            if (cart.innerHTML.includes('Кошик порожній')) {
-                cart.innerHTML = '';
-            }
-            const item = document.createElement('div');
-            item.classList.add('item');
-            item.innerHTML = `<h3>${name}</h3><p>Ціна: ${price} грн</p>`;
-            cart.appendChild(item);
-        }
-
-        function placeOrder() {
-            const cart = document.getElementById('cart-items');
-            const orders = document.getElementById('order-items');
-            if (cart.innerHTML.trim() !== '' && !cart.innerHTML.includes('Кошик порожній')) {
-                if (orders.innerHTML.includes('Немає історії замовлень')) {
-                    orders.innerHTML = '';
-                }
-                orderCount++;
-                const orderWrapper = document.createElement('div');
-                orderWrapper.classList.add('order-item');
-                orderWrapper.innerHTML = `<h3>Замовлення №${orderCount}</h3>` + cart.innerHTML;
-                orders.appendChild(orderWrapper);
-                cart.innerHTML = '<p>Кошик порожній</p>';
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
