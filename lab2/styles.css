@@ -33,7 +33,7 @@ nav a {
     overflow: hidden;
     text-align: center;
     padding: 15px;
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0;
 }
 .item img {
     width: 100%;
@@ -44,8 +44,12 @@ nav a {
     display: none;
 }
 .order-item {
-    background-color: #e0e0e0; 
+    background-color: #e0e0e0;
     border-radius: 10px;
     padding: 15px;
     margin-bottom: 10px;
+}
+.added {
+    background-color: green !important;
+    color: white;
 }

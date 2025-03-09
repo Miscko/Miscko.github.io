@@ -12,44 +12,10 @@
         <a href="#cart" onclick="showSection('cart')">Кошик</a>
         <a href="#orders" onclick="showSection('orders')">Мої замовлення</a>
     </nav>
-    
+
     <div class="container">
-        <section id="menu" class="grid">
-            <div class="item">
-                <img src="Страва 1.png" alt="Лазанья">
-                <h3>Лазанья</h3>
-                <p>
-                    Традиційна страва італійської кухні, 
-                    приготована з шарів тіста (листів лазаньї) разом із шарами начинки, 
-                    залитими соусом (зазвичай бешамель).
-                </p>
-                <p>Ціна: 150 грн</p>
-                <button onclick="addToCart('Лазанья', 150)">Додати в кошик</button>
-            </div>
-            <div class="item">
-                <img src="Страва 2.png" alt="Карбонара">
-                <h3>Карбонара</h3>
-                <p>
-                    Спагеті з дрібними шматочками гуанчале (солона некопчена італійська свиняча щоковина) 
-                    та шампіньонів, змішані з соусом з яєчного жовтка, сиру пекоріно романо, 
-                    солі та свіжезмеленого чорного перцю.
-                </p>
-                <p>Ціна: 120 грн</p>
-                <button onclick="addToCart('Карбонара', 120)">Додати в кошик</button>
-            </div>
-            <div class="item">
-                <img src="Страва 3.png" alt="Салат Цезар">
-                <h3>Салат Цезар</h3>
-                <p>
-                    Популярний салат, одна з найвідоміших страв північноамериканської кухні. 
-                    У класичній версії основними складниками салату є пшеничні крутони, 
-                    листя салату-ромен і тертий пармезан, заправлені соусом.
-                </p>
-                <p>Ціна: 180 грн</p>
-                <button onclick="addToCart('Салат Цезар', 180)">Додати в кошик</button>
-            </div>
-        </section>
-        
+        <section id="menu" class="grid"></section>
+
         <section id="cart" class="cart">
             <h2>Кошик</h2>
             <div class="grid" id="cart-items">
@@ -58,7 +24,7 @@
             <p id="cart-total">Загальна сума: 0 грн</p>
             <button onclick="placeOrder()">Замовити</button>
         </section>
-        
+
         <section id="orders" class="orders">
             <h2>Мої замовлення</h2>
             <div id="order-items">
@@ -66,7 +32,7 @@
             </div>
         </section>
     </div>
-    
+
     <script src="script.js"></script>
     <footer>
         <p>-Miscko 2025-</p>
