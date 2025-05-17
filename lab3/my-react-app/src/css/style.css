@@ -1,55 +1,271 @@
-body {
-    font-family: Arial, sans-serif;
+*{
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
-nav {
-    width: 100%;
-    background: #ff5722;
-    padding: 15px;
-    text-align: center;
+
+body {
+    background-color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
 }
-nav a {
-    color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
+
+.header {
+    background-color: #ff5722;
+    padding: 25px 100px;
+    font-weight: 600;
 }
-.container {
+
+.button {
+    background-color: #ff5722;
+    font-size: 16px;
+    color: #000;
+    border: none;
+    margin: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 500ms ease;
+}
+
+.buttonbox {
+    background-color: #ccc;
+    font-size: 16px;
+    color: #000;
+    border: none;
+    margin: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 500ms ease;
+}
+
+.buttoncart {
+    background-color: #fff;
+    font-size: 20px;
+    color: #000;
+    border: none;
+    margin: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 500ms ease;
+}
+
+button:hover { 
+    transform: scale(1.1); 
+}
+
+main {
     width: 80%;
     margin: 20px auto;
 }
-.grid {
+
+.aside {
+    display: flex;
+}
+
+/*.mealbox {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+    justify-content: center;
+    margin: 10px;
+    border: solid 2px black;
+    background-color: #ccc;
+}*/
+
+.cartbox {
+    display: grid;
+    justify-content: center;
+    margin: 10px;
+    border: solid 2px black;
+    background-color: #ccc;
+    
 }
-.item {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: center;
-    padding: 15px;
-    background-color: #f0f0f0;
-}
-.item img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-.cart, .orders {
-    display: none;
-}
-.order-item {
-    background-color: #e0e0e0;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
-}
-.added {
-    background-color: green !important;
+
+.remove-button {
+    margin: 5px;
+    padding: 4px 8px;
+    background-color: #e74c3c;
     color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-button:hover {
+    background-color: #c0392b;
+}
+
+.divv {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    /* вирівняти всі карточки по верху свого грід-ряду */
+    align-items: start;
+    padding: 0 10px;
+}  
+
+.mealbox {
+    display: flex;
+    flex-direction: column;
+    /* обов’язково, щоб карточка займала всю висоту клітинки гріда */
+    height: 100%;
+    margin: 0;            /* відступи беремо із gap у .divv */
+    border: 2px solid #000;
+    background-color: #ccc;
+    padding: 12px;
+}
+  
+  /* Фіксуємо картинку, щоб не “стискала” карточку по висоті */
+.mealbox .img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+  
+  /* Штовхаємо кнопку вниз */
+.mealbox .buttonbox {
+    margin-top: auto;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+  
+/* Контейнер усіх товарів у кошику */
+.cart-list {
+    display: grid;
+    /* як в меню: мінімум 280px на колонку, автоматично підлаштовуємось */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    /* всі “рядки” починаються з одного рівня по верху */
+    align-items: start;
+    padding: 0 10px;
+  }
+  
+  /* Окрема карточка в кошику */
+  .cart-item {
+    display: flex;
+    flex-direction: column;
+    /* щоб flex мав куди “розштовхувати” кнопку вниз */
+    height: 100%;
+    border: 2px solid #333;
+    background: #f5f5f5;
+    padding: 12px;
+  }
+  
+  /* Фіксована висота картинок */
+  .cart-item .cart-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+  
+  /* Кнопка завжди внизу картки */
+  .cart-item .remove-btn {
+    margin-top: auto;
+    padding: 8px 16px;
+    background: #e74c3c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+
+.img {
+    border: 3px solid;
+    color: #000;
+}
+
+
+.auth-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 400px;
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.auth-form label {
+  display: block;
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 14px;
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 5px;
+  border: 1px solid #ccd0d5;
+  border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+.auth-form .error {
+  background: #ffe6e6;
+  color: #d8000c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 10px;
+}
+
+.auth-form button:hover {
+  background-color: #357ab8;
+}
+
+.mode-switch-line {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.mode-switch {
+  background: none;
+  border: none;
+  color: #4a90e2;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+}
+
+.mode-switch:hover {
+  text-decoration: underline;
 }
