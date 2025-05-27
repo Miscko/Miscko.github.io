@@ -1,126 +1,3 @@
-/*import React from "react";
-import Menu from "./Menu";
-import Cart from "./Cart";
-import Order from "./Order";
-import SinLin from "./SinLin";
-import ShowMenu from "./ShowMenu";
-import ShowCart from "./ShowCart";
-import ShowOrder from "./ShowOrder";
-import ShowMainPage from "./ShowMainPage";
-import ShowSinLin from "./ShowSinLin";
-
-class FoodOrderApp extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            st: "mainpage",
-            countOfOrders: 2,
-            meals: [
-                {
-                    id: 1,
-                    name: "Лазанья",
-                    price: 100,
-                    description: "Традиційна італійська страва",
-                    img: "./img/Страва_1.png",
-                    type: "Гарячі страви"
-                },
-                {
-                    id: 2,
-                    name: "Карбонара",
-                    price: 150,
-                    description: "Спагеті з соусом з яєць та пармезану",
-                    img: "./img/Страва_2.png",
-                    type: "Гарячі страви"
-                },
-                {
-                    id: 3,
-                    name: "Салат Цезар",
-                    price: 200,
-                    description: "Салат з крутонами та пармезаном",
-                    img: "./img/Страва_3.png",
-                    type: "Салати"
-                },
-                {
-                    id: 4,
-                    name: "Піца",
-                    price: 250,
-                    description: "Національне італійське блюдо",
-                    img: "./img/Страва_4.png",
-                    type: "Піци"
-                },
-                {
-                    id: 5,
-                    name: "Кава",
-                    price: 70,
-                    description: "Американо",
-                    img: "./img/Страва_5.png",
-                    type: "Напої"
-                },
-                {
-                    id: 6,
-                    name: "Сік",
-                    price: 70,
-                    description: "Ананасовий сік",
-                    img: "./img/Страва_6.png",
-                    type: "Напої"
-                }
-            ],
-            cart: [
-
-            ],
-            order: [
-                
-            ]
-        }
-    }
-    handleChangeSt = (newState) => {
-        this.setState({ st: newState });
-    }
-    addToCart = (meal) => {
-        this.setState((prevState) => ({
-            cart: [...prevState.cart, meal]
-        }), () => {
-            console.log("Cart now:", this.state.cart);
-        });
-    }
-    placeOrder = () => {
-        if (this.state.cart.length === 0) return;
-    
-        this.setState((prevState) => ({
-            order: [...prevState.order, [...prevState.cart]], // додає нове замовлення
-            cart: [], // очищає кошик
-            countOfOrders: prevState.countOfOrders + 1
-        }), () => {
-            console.log("Order placed:", this.state.order);
-        });
-    }
-    removeFromCart = (id) => {
-        this.setState((prevState) => ({
-            cart: prevState.cart.filter(item => item.id !== id)
-        }));
-    }                   
-    render() {
-        return(<div>
-            <header className="header">
-                <button className="button" onClick={() => {this.handleChangeSt("mainpage")}}>Ам ням ням</button>
-                <SinLin onSinLinClick={() => {this.handleChangeSt("sinlin")}}/>
-                <Menu onMenuClick={() => {this.handleChangeSt("menu")}}/>
-                <Cart onCartClick={() => {this.handleChangeSt("cart")}}/>
-                <Order onOrderClick={() => {this.handleChangeSt("order")}}/>
-            </header>
-            <main className="main">
-                {this.state.st === "mainpage" && <ShowMainPage/>}
-                {this.state.st === "sinlin" && <ShowSinLin/>}
-                {this.state.st === "menu" && <ShowMenu meals={this.state.meals} onAddToCart={this.addToCart}/>}
-                {this.state.st === "cart" && <ShowCart cart={this.state.cart} onPlaceOrder={this.placeOrder} onRemove={this.removeFromCart}/>}
-                {this.state.st === "order" && <ShowOrder order={this.state.order} count={this.state.countOfOrders}/>}
-            </main>
-        </div>
-        )
-    }
-}
-
-export default FoodOrderApp*/
 import React from "react";
 import Menu from "./Menu";
 import Cart from "./Cart";
@@ -187,6 +64,14 @@ class FoodOrderApp extends React.Component {
                     description: "Ананасовий сік",
                     img: "./img/Страва_6.png",
                     type: "Напої"
+                },
+                {
+                    id: 7,
+                    name: "Вівсянка",
+                    price: 80,
+                    description: "Легкий сніданок",
+                    img: "./img/Страва_7.png",
+                    type: "Сніданки"
                 } ],
       cart: [],
       order: [],
