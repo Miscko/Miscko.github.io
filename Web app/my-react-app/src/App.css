@@ -4,7 +4,7 @@
   margin: 0 auto;
   padding: 1rem;
 }
-.form-container, .scanner-container, .camera-container {
+.form-container, .camera-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,6 +27,16 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+.link-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.link-btn:hover {
+  color: #0056b3;
+}
 .error-msg {
   color: red;
   margin-bottom: 0.5rem;
@@ -41,6 +51,7 @@ button:hover {
   max-width: 100%;
   border: 1px solid #ccc;
 }
+
 
 .header {
   padding: 25px 100px;
